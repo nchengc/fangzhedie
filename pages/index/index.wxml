@@ -1,0 +1,47 @@
+<view class="container">
+  <view class="header-section">
+    <view class="header-top">
+      <image class="logo" src="/logo.png" mode="aspectFit"></image>
+      <view class="text-wrapper">
+        <text class="app-name">防折叠助手</text>
+        <view class="slogan">防折叠黑科技，朋友圈发文不缩水</view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="input-section">
+    <textarea 
+      class="text-input" 
+      placeholder="请输入或粘贴朋友圈文案..." 
+      value="{{inputText}}" 
+      maxlength="2000"
+      bindinput="onInput"
+    ></textarea>
+    <view class="word-count">{{inputText.length}}/2000</view>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-primary" bindtap="onGenerate">一键生成</button>
+    <button class="btn-secondary" bindtap="onPaste">一键粘贴</button>
+  </view>
+
+  <view class="history-section">
+    <view class="section-header" bindtap="toggleHistory">
+      <text class="section-title">历史记录</text>
+      <text class="toggle-icon">{{showHistory ? '▲' : '▼'}}</text>
+    </view>
+    
+    <view wx:if="{{showHistory}}">
+      <block wx:if="{{history.length > 0}}">
+        <view wx:for="{{history}}" wx:key="id" class="history-item" bindtap="onHistoryClick" data-id="{{item.id}}">
+          <view class="history-time">{{item.timeStr}}</view>
+          <view class="history-content">{{item.content}}</view>
+        </view>
+        <button class="btn-clear" bindtap="onClearHistory">清除历史记录</button>
+      </block>
+      <view wx:if="{{history.length === 0}}" class="history-empty">
+        暂无历史记录
+      </view>
+    </view>
+  </view>
+</view>
