@@ -3,10 +3,11 @@
     <view class="header-top">
       <image class="logo" src="/logo.png" mode="aspectFit"></image>
       <view class="text-wrapper">
-        <text class="app-name">防折叠助手</text>
-        <view class="slogan">防折叠黑科技，朋友圈发文不缩水</view>
+        <text class="app-name">文案助手防折叠</text>
+        <text class="app-subtitle">朋友圈长文不缩水</text>
       </view>
     </view>
+    <view class="slogan">轻松发布长文，内容完整展示</view>
   </view>
   
   <view class="input-section">
