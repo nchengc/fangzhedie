@@ -4,11 +4,12 @@ const AntiFold = {
   },
 
   addSoftSpaces(text) {
+    const softSpace = '\u200b';
     let result = '';
     for (let char of text) {
       result += char;
       if (/[\u4e00-\u9fa5]/.test(char)) {
-        result += ' ';
+        result += softSpace;
       }
     }
     return result;
